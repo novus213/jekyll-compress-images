@@ -22,7 +22,7 @@ module Jekyll
       @last_update ||= {}
 
       Dir.glob(@config["images_path"]) { |image| analyze image }
-      Dir.glob(@config["images_path"]) { |image| analyze image }
+      Dir.glob(@config["images_path2"]) { |image| analyze image }
       
       File.open(@config["cache_file"], "w") { |file| file.write @last_update.to_yaml }
     end
