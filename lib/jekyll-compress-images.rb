@@ -22,14 +22,16 @@ module Jekyll
       @last_update ||= {}
 
       Dir.glob(@config["images_path"]) { |image| analyze image }
-
+      Dir.glob(@config["images_path"]) { |image| analyze image }
+      
       File.open(@config["cache_file"], "w") { |file| file.write @last_update.to_yaml }
     end
 
     def default_options
       {
         "cache_file" => "_compress_images_cache.yml",
-        "images_path" => "assets/img/**/*.{gif,png,jpg,jpeg,svg}"
+        "images_path" => "uploads/**/*.{gif,png,jpg,jpeg,svg}"
+        "images_path2" => "assets/img/**/*.{gif,png,jpg,jpeg,svg}"
       }
     end
 
